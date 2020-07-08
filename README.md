@@ -6,4 +6,5 @@
 - kakao-2017-blind-3/
   -  http://tech.kakao.com/2017/11/14/kakao-blind-recruitment-round-3/
 - kakao-2020-intership-test/
-  - https://tech.kakao.com/2020/07/01/2020-internship-test/
+  - https://tech.kakao.com/2020/07/01/2020-internship-test/  
+    - kakao1.py: https://programmers.co.kr/learn/courses/30/lessons/67256
