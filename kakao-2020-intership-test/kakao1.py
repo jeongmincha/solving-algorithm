@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 def solution(numbers, hand):
     assert hand == "left" or hand == "right"
 

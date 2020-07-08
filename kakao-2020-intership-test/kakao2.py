@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 def solution(expression):
     import copy
     from itertools import permutations
