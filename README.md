@@ -8,3 +8,5 @@
 - kakao-2020-intership-test/
   - https://tech.kakao.com/2020/07/01/2020-internship-test/  
     - kakao1.py: https://programmers.co.kr/learn/courses/30/lessons/67256
+    - kakao2.py: https://programmers.co.kr/learn/courses/30/lessons/67257
+    
