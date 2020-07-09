@@ -11,4 +11,5 @@
     - kakao2.py: https://programmers.co.kr/learn/courses/30/lessons/67257
     - kakao3.py: https://programmers.co.kr/learn/courses/30/lessons/67258
     - kakao4.py: https://programmers.co.kr/learn/courses/30/lessons/67259
+    - kakao5.py: https://programmers.co.kr/learn/courses/30/lessons/67260
     
