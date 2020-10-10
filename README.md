@@ -16,5 +16,6 @@
   - coding_test_practice/ (코딩 테스트 연습)
     - stack_and_queue/ (스택/큐)
       - stock_price.py (주식가격): https://programmers.co.kr/learn/courses/30/lessons/42584
+      - feature_development.py (기능개발): https://programmers.co.kr/learn/courses/30/lessons/42586
   - cache.py: https://programmers.co.kr/learn/courses/30/lessons/17680
   - country124.py: https://programmers.co.kr/learn/courses/30/lessons/12899
