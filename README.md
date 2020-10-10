@@ -11,6 +11,7 @@
     - stack_and_queue (스택/큐)
       - stock_price.py (주식가격): https://programmers.co.kr/learn/courses/30/lessons/42584
       - feature_development.py (기능개발): https://programmers.co.kr/learn/courses/30/lessons/42586
+      - trucks_crossing_bridge.py (다리를 지나는 트럭): https://programmers.co.kr/learn/courses/30/lessons/42583
   - cache.py: https://programmers.co.kr/learn/courses/30/lessons/17680
   - country124.py: https://programmers.co.kr/learn/courses/30/lessons/12899
 
