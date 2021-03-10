@@ -9,7 +9,7 @@ def solution(money):
     for i in range(2, N-1):
         memo.append(max(memo[i-2] + money[i], memo[i-1]))
     
-    for i in range(2, N-1):
+    for i in range(2, N):
         memo2.append(max(memo2[i-2] + money[i], memo2[i-1]))
 
     return max(memo[-1], memo2[-1])
