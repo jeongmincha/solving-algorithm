@@ -1,26 +1,45 @@
 import sys
+from heapq import heappop, heappush
 
-# def dijkstra(cost, a, b):
-#     dist = [sys.maxint for i in range()]
+def dijkstra(costs, src, dst):
+    distances = [sys.maxsize for _ in range(len(costs))]
+    distances[src] = 0
+    priority_queue = [(0, src)]
+
+    while priority_queue:
+        distance, node = heappop(priority_queue)
+
+        if distances[node] < distance:
+            continue
+
+        for item in costs[node]:
+            new_node, new_cost = item
+            new_cost += distance
+            if new_cost < distances[new_node]:
+                distances[new_node] = new_cost
+                heappush(priority_queue, (new_cost, new_node))
+
+    return distances[dst]
+
 
 def solution(n, s, a, b, fares):
     answer = sys.maxsize
-    cost = {k: {k2: sys.maxsize for k2 in range(1, n+1)} for k in range(1, n+1)}
-
-    for i in range(1, n+1):
-        cost[i][i] = 0
+    costs = [[] for _ in range(n+1)]
 
     for fare in fares:
-        cost[fare[0]][fare[1]] = fare[2]
-        cost[fare[1]][fare[0]] = fare[2]
-    
-    for k in range(1, n+1):
-        for i in range(1, n+1):
-            for j in range(1, n+1):
-                cost[i][j] = min(cost[i][j], cost[i][k] + cost[k][j])
-    
+        src, dst, cost = fare
+        costs[src].append([dst, cost])
+        costs[dst].append([src, cost])
+
+    answer = dijkstra(costs, s, a) + dijkstra(costs, s, b)
+    print(answer)
     for middle in range(1, n+1):
-        answer = min(answer, cost[s][middle] + cost[middle][a] + cost[middle][b])
+        if middle != s:
+            answer = min(answer, 
+                dijkstra(costs, s, middle) + \
+                dijkstra(costs, middle, a) + \
+                dijkstra(costs, middle, b)
+            )
 
     return answer
 
