@@ -1,4 +1,5 @@
 .vscode/
 
+*.class
 *.py[co]
 __pycache__
