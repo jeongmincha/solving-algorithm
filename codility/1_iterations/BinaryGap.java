@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class Solution {
+class BinaryGap {
     public int solution(int N) {
         int n = N;
         ArrayList<Integer> binaryList = new ArrayList<Integer>();
@@ -32,13 +32,13 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        BinaryGap binaryGap = new BinaryGap();
         int[] testInputs = {1041, 32, 9, 529};
         int[] answers = {5, 0, 2, 4};
 
         for (int i = 0; i < testInputs.length; i++) {
             int N = testInputs[i];
-            int result = sol.solution(N);
+            int result = binaryGap.solution(N);
 
             System.out.println("### TEST CASE " + (i+1) + " ###");
             System.out.println("- Solution: " + result);

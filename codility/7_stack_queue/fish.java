@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-class Solution {
+class Fish {
     public int solution(int[] A, int[] B) {
         Stack<Integer> downstreamFishes = new Stack<>();
         int aliveCount = 0;
@@ -25,14 +25,14 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        Fish fish = new Fish();
         int[][][] testCases = { { { 4, 3, 2, 1, 5 }, { 0, 1, 0, 0, 0 } } };
         int[] answers = { 2 };
 
         for (int i = 0; i < testCases.length; i++) {
             int[] A = testCases[i][0];
             int[] B = testCases[i][1];
-            int result = sol.solution(A, B);
+            int result = fish.solution(A, B);
 
             System.out.println("### TEST CASE " + (i + 1) + " ###");
             System.out.println("Solution: " + result);
