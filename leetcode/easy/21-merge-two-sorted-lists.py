@@ -1,4 +1,4 @@
-# Problem: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+# Problem: https://leetcode.com/problems/merge-two-sorted-lists/
 
 import unittest
 from typing import List
@@ -30,57 +30,61 @@ class ListNode:
 
 
 class Solution:
-    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        current = head
-        fast = current
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        root = ListNode()
+        current = root
 
-        for _ in range(n):
-            fast = fast.next
+        p1, p2 = l1, l2
+        while p1 and p2:
+            if p1.val < p2.val:
+                current.next = p1
+                current = current.next
+                p1 = p1.next
+            else:
+                current.next = p2
+                current = current.next
+                p2 = p2.next
         
-        found = False
-        while fast is not None:
-            if fast.next is None:
-                found = True
-                temp = current.next.next
-                current.next = temp
-
+        while p1:
+            current.next = p1
             current = current.next
-            fast = fast.next
+            p1 = p1.next
         
-        if found:
-            return head
-        else:
-            return head.next
+        while p2:
+            current.next = p2
+            current = current.next
+            p2 = p2.next
 
+        return root.next
 
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
         self.solution = Solution()
-
-    def testRemoveNthFromEnd(self):
+    
+    def testMergeTwoLists(self):
         test_cases = [
             {
-                'head': [1,2,3,4,5],
-                'n': 2,
-                'output': [1,2,3,5]
+                'l1': [1,2,4],
+                'l2': [1,3,4],
+                'output': [1,1,2,3,4,4]
             },
             {
-                'head': [1],
-                'n': 1,
+                'l1': [],
+                'l2': [],
                 'output': []
             },
             {
-                'head': [1,2],
-                'n': 1,
-                'output': [1]
+                'l1': [],
+                'l2': [0],
+                'output': [0]
             }
         ]
         for test_case in test_cases:
-            head = ListNode.fromArray(test_case['head'])
-            n = test_case['n']
+            l1 = ListNode.fromArray(test_case['l1'])
+            l2 = ListNode.fromArray(test_case['l2'])
             expected = test_case['output']
-            answer = self.solution.removeNthFromEnd(head, n)
+            answer = self.solution.mergeTwoLists(l1, l2)
             answer = ListNode.toArray(answer)
 
             self.assertEqual(expected, answer)
