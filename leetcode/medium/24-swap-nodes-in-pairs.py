@@ -1,4 +1,4 @@
-# Problem: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+# Problem: https://leetcode.com/problems/swap-nodes-in-pairs/
 
 import unittest
 from typing import List
@@ -30,57 +30,55 @@ class ListNode:
 
 
 class Solution:
-    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        current = head
-        fast = current
-
-        for _ in range(n):
-            fast = fast.next
-        
-        found = False
-        while fast is not None:
-            if fast.next is None:
-                found = True
-                temp = current.next.next
-                current.next = temp
-
-            current = current.next
-            fast = fast.next
-        
-        if found:
+    def swapPairs(self, head: ListNode) -> ListNode:
+        if head is None or head.next is None:
             return head
-        else:
-            return head.next
 
+        root = ListNode(-1)
+        root.next = head
+        p1 = root
+
+        while p1 and p1.next and p1.next.next:
+            temp = p1.next.next.next
+            p1.next.next.next = p1.next
+            p1.next = p1.next.next
+            p1 = p1.next.next
+            p1.next = temp
+
+        return root.next
 
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
         self.solution = Solution()
 
-    def testRemoveNthFromEnd(self):
+    def testSwapPairs(self):
         test_cases = [
             {
-                'head': [1,2,3,4,5],
-                'n': 2,
-                'output': [1,2,3,5]
+                'head': [1,2,3,4],
+                'output': [2,1,4,3]
             },
             {
-                'head': [1],
-                'n': 1,
+                'head': [],
                 'output': []
             },
             {
-                'head': [1,2],
-                'n': 1,
+                'head': [1],
                 'output': [1]
-            }
+            },
+            {
+                'head': [1,2,3],
+                'output': [2,1,3]
+            },
+            # {
+            #     'head': [1,2],
+            #     'output': [2,1]
+            # }
         ]
         for test_case in test_cases:
             head = ListNode.fromArray(test_case['head'])
-            n = test_case['n']
             expected = test_case['output']
-            answer = self.solution.removeNthFromEnd(head, n)
+            answer = self.solution.swapPairs(head)
             answer = ListNode.toArray(answer)
 
             self.assertEqual(expected, answer)
