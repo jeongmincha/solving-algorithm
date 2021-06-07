@@ -5,4 +5,7 @@
 *.py[co]
 __pycache__
 
+# Node.js
+node_modules/
+
 output.txt
