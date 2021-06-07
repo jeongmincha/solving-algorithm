@@ -19,6 +19,16 @@ export function reverseWords(str: string): string {
     return answer
 }
 
+export function reverseWords2(str: string): string {
+    const reverse = (x: string) => x.split('').reverse().join('')
+    return str.split(' ').map(reverse).join(' ')
+}
+
+export const reverseWords3 = (str: string): string => str
+    .split(" ")
+    .map(word => Array.from(word).reverse().join(""))
+    .join(" ");
+
 const testCases = [
     {
         'str': 'The quick brown fox jumps over the lazy dog.',
@@ -39,6 +49,7 @@ const testCases = [
 ]
 
 for (const testCase of testCases) {
+    // let reverseWords = reverseWords3
     const output = reverseWords(testCase.str)
     if (output != testCase.expected) {
         throw new Error(`${output} != ${testCase.expected}`)
