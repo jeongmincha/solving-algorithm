@@ -21,13 +21,13 @@ var searchInsert = function(nums, target) {
     return nums[mid] === target ? mid : left;
 };
 
-const test_cases = [
+const testCases = [
     [[1,3,5,6], 5, 2],
     [[1,3,5,6], 2, 1],
     [[1,3,5,6], 7, 4]
 ];
 
-for (let idx=0; idx<test_cases.length; idx++) {
-    const [nums, target, output] = test_cases[idx];
+for (let idx=0; idx<testCases.length; idx++) {
+    const [nums, target, output] = testCases[idx];
     console.log(searchInsert(nums, target));
 }
