@@ -41,3 +41,5 @@ for (let index = 0; index < testCases.length; index++) {
     const [head, output] = testCases[index];
     console.dir(reverseList(head));
 }
+
+export { };
