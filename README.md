@@ -14,3 +14,9 @@
 └ leetcode/
 └ programmers/
 ```
+
+# Typescript 솔루션 실행 방법
+```
+# 예를 들어 leetcode/medium/215-kth-largest-element-in-an-array.ts 같은걸 실행시키고 싶다면,
+$ npm test -- leetcode/medium/215 # 파일명 전부 다 쓸 필요는 없음.
+```

@@ -1,13 +1,27 @@
 {
-  "devDependencies": {
-    "@types/chai": "^4.2.18",
-    "@types/mocha": "^8.2.2",
-    "mocha": "^8.4.0",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.3.2"
+  "name": "solving-algorithm",
+  "description": "인터넷에 게재되어 있는 알고리즘 문제들을 저의 방식대로 푼 솔루션들을 모아두었습니다.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
   },
-  "dependencies": {
-    "chai": "^4.3.4",
-    "mocha": "^8.4.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeongmincha/solving-algorithm.git"
+  },
+  "author": "jeongmin.cha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeongmincha/solving-algorithm/issues"
+  },
+  "homepage": "https://github.com/jeongmincha/solving-algorithm#readme",
+  "devDependencies": {
+    "@types/jest": "^28.1.1",
+    "@types/node": "^17.0.43",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
   }
 }
