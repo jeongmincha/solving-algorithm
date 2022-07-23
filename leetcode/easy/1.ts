@@ -1,4 +1,5 @@
-function twoSum(nums: number[], target: number): number[] {
+// TC: O(N logN)
+function _twoSum(nums: number[], target: number): number[] {
     let numsWithIndex = nums.map((num, idx) => [num, idx]);
     numsWithIndex.sort((a, b) => a[0] - b[0]);
 
@@ -15,6 +16,26 @@ function twoSum(nums: number[], target: number): number[] {
     }
 
     return [numsWithIndex[left][1], numsWithIndex[right][1]];
+};
+
+// TC: O(N)
+function twoSum(nums: number[], target: number): number[] {
+    const seen: { [k: number]: number } = {};
+
+    let answer: number[] = [];
+    nums.forEach((num, idx) => {
+        if (num in seen) {
+            if (seen[num] > idx) {
+                answer = [idx, seen[num]];
+            } else {
+                answer = [seen[num], idx];
+            }
+            return;
+        }
+        seen[target - num] = idx;
+    });
+
+    return answer;
 };
 
 const testCases: [number[], number, number[]][] = [

@@ -5,7 +5,8 @@ from typing import List
 
 
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    # TC: O(N*logN)
+    def _twoSum(self, nums: List[int], target: int) -> List[int]:
         nums_with_index = [(num, idx) for idx, num in enumerate(nums)]
         nums_with_index.sort(key=lambda x:x[0])
 
@@ -21,6 +22,20 @@ class Solution:
                 break
 
         return [nums_with_index[left][1], nums_with_index[right][1]]
+    
+    # Better Solution
+    # TC: O(N)
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
+
+        for idx, num in enumerate(nums):
+            if num in seen:
+                if seen[num] > idx:
+                    return [idx, seen[num]]
+                else:
+                    return [seen[num], idx]
+
+            seen[target-num] = idx
 
 
 class TestSolution(unittest.TestCase):
