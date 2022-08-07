@@ -1,15 +1,15 @@
 // https://leetcode.com/problems/maximum-subarray/
 
 function maxSubArray(nums: number[]): number {
-    let bestSum = -Infinity;
-    let endSum = 0;
+    let answer = Math.max(...nums);
+    let curSum = 0;
 
     for (const n of nums) {
-        endSum = Math.max(endSum + n, n)
-        bestSum = Math.max(bestSum, endSum)
+        curSum = Math.max(curSum + n, n)
+        answer = Math.max(answer, curSum)
     }
 
-    return bestSum;
+    return answer;
 };
 
 const testCases: [number[], number][] = [
